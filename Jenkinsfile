@@ -48,8 +48,8 @@ pipeline {
                 mail(
                 body: "Hi ${currentBuild.fullDisplayName}, please kindly login and approve the pipeline build stage. Link to pipeline  ${env.BUILD_URL} has result ${currentBuild.result}", 
                 cc: "", 
-                from: "valyakem@yahoo.co.uk", 
-                replyTo: "valyakem@yahoo.co.uk", 
+                from: "nexbits@zohomail.com", 
+                replyTo: "nexbits@zohomail.com", 
                 subject: "Test email using mailer", 
                 to: "valyakem@yahoo.co.uk"
                 )
