@@ -1,5 +1,5 @@
 #!/bin/sh
-DEST="14279408000.dkr.ecr.ca-central-1.amazonaws.com/testecs"
+DEST="440153443065.dkr.ecr.us-east-1.amazonaws.com/ecspractice"
 if [ aws ecr create-repository --repository-name $APP_NAME --region $AWS_DEFAULT_REGION ]; then 
     # It is a symbolic links #
     echo "Directory exist ..."
