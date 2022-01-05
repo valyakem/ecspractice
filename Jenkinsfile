@@ -3,15 +3,15 @@ pipeline {
     agent any
     
     environment {
-            REPOSITORY_URI = "614279408000.dkr.ecr.ca-central-1.amazonaws.com"
-            AWS_DEFAULT_REGION = "ca-central-1"
-            APP_NAME = "testecs"
+            REPOSITORY_URI = "440153443065.dkr.ecr.us-east-1.amazonaws.com"
+            AWS_DEFAULT_REGION = "us-east-1"
+            APP_NAME = "ecspractice"
             VPC_ID = "vpc-090bb77db170cd437"
             SUBNET_ID_1 = "subnet-0894ee0fd9491fd0c"
             SUBNET_ID_2 = "ubnet-03156e03dab66f7a7"
             SUBNET_ID_3 = "subnet-07fd28e465a5c14e1"
             SECURITY_GROUP_ID = "sg-0ae7f356fd3f24fa8"
-            MY_PROFILE = "ecsprofile"
+            MY_PROFILE = "default"
             //CLUSTER_NAME = "pythontestapp"
             //SERVICE_NAME = "pythontestappsv"
             //TASK_DEFINITION_NAME = 'pythontestapp'
@@ -25,10 +25,10 @@ pipeline {
         stage ('Checkout') {
             steps {
                     checkout([$class: 'GitSCM', 
-                    branches: [[name: '*/master']], 
+                    branches: [[name: '*/main']], 
                     extensions: [], 
-                    userRemoteConfigs: [[credentialsId: 'vakem', 
-                    url: 'https://gitlab.tvo.org/tvo-3.0/ecstestproject.git']]])
+                    userRemoteConfigs: [[credentialsId: 'valyakem', 
+                    url: 'https://github.com/valyakem/ecspractice.git']]])
                 }
         } 
         
@@ -48,17 +48,17 @@ pipeline {
                 mail(
                 body: "Hi ${currentBuild.fullDisplayName}, please kindly login and approve the pipeline build stage. Link to pipeline  ${env.BUILD_URL} has result ${currentBuild.result}", 
                 cc: "", 
-                from: "vakem@tvo.org", 
-                replyTo: "vakem@tvo.org", 
+                from: "valyakem@yahoo.co.uk", 
+                replyTo: "valyakem@yahoo.co.uk", 
                 subject: "Test email using mailer", 
-                to: "vakem@tvo.org"
+                to: "valyakem@yahoo.co.uk"
                 )
             }
         }
  
         stage ('Image Build') {
             when {
-                branch 'master'
+                branch 'main'
             }
             input{
                 message "Do you want to proceed for production deployment?"
@@ -75,7 +75,7 @@ pipeline {
 
         stage ('Create Repository') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                    script {
@@ -87,7 +87,7 @@ pipeline {
         
         stage ('Push to ECR') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 script {
@@ -100,7 +100,7 @@ pipeline {
 
         stage ('Create Cluster') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 script {
