@@ -58,7 +58,7 @@ pipeline {
  
         stage ('Image Build') {
             when {
-                 Branch = '*/main'
+                branch "*/main"
             }
             input{
                 message "Do you want to proceed for production deployment?"
@@ -75,7 +75,7 @@ pipeline {
 
         stage ('Create Repository') {
             when {
-                 Branch = '*/main'
+                branch "*/main"
             }
             steps {
                    script {
@@ -87,7 +87,7 @@ pipeline {
         
         stage ('Push to ECR') {
             when {
-                 Branch = '*/main'
+                branch "*/main"
             }
             steps {
                 script {
@@ -100,7 +100,7 @@ pipeline {
 
         stage ('Create Cluster') {
             when {
-                 Branch = '*/main'
+                branch "*/main"
             }
             steps {
                 script {
