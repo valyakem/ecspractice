@@ -65,6 +65,7 @@ pipeline {
             }
             steps {
                    script {
+                       sh "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI"
                        sh 'sudo docker build -t hello-world .'
                      //sh "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI"
                      //sh "docker tag alpine/git:latest $REPOSITORY_URI/$APP_NAME:latest"
