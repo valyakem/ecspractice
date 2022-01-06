@@ -57,9 +57,9 @@ pipeline {
         }
  
         stage ('Image Build') {
-            when {
-                branch "*/main"
-            }
+            // when {
+            //     branch "*/main"
+            // }
             input{
                 message "Do you want to proceed for production deployment?"
             }
@@ -74,9 +74,9 @@ pipeline {
         }
 
         stage ('Create Repository') {
-            when {
-                branch "*/main"
-            }
+            // when {
+            //     branch "*/main"
+            // }
             steps {
                    script {
                     sh "aws ecr describe-repositories --repository-names $APP_NAME || aws ecr create-repository --repository-name $APP_NAME"
@@ -86,9 +86,9 @@ pipeline {
         }
         
         stage ('Push to ECR') {
-            when {
-                branch "*/main"
-            }
+            // when {
+            //     branch "*/main"
+            // }
             steps {
                 script {
                     sh "docker tag hello-world $REPOSITORY_URI/$APP_NAME"
@@ -99,9 +99,9 @@ pipeline {
         
 
         stage ('Create Cluster') {
-            when {
-                branch "*/main"
-            }
+            // when {
+            //     branch "*/main"
+            // }
             steps {
                 script {
                     //sh "docker compose down"
