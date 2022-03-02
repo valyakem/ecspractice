@@ -37,6 +37,9 @@ pipeline {
             steps {
                    script {
                      sh 'docker --version'
+                     sh 'sudo groupadd docker'
+                     sh 'sudo usermod -aG docker ${USER}'
+                     
                      sh "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI"
                      //sh "ecs-cli compose down --cluster-config testecs --ecs-profile ecsprofile"
                      //sh "ecs-cli down --force --cluster-config testecs --ecs-profile ecsprofile"
