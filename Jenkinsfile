@@ -37,6 +37,7 @@ pipeline {
             steps {
                    script {
                      sh 'docker --version'
+                     sh 'docker compose version'
                      sh 'sudo groupadd docker'
                      sh 'sudo usermod -aG docker ${USER}'
 
