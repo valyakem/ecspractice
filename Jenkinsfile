@@ -106,6 +106,7 @@ pipeline {
             // when {
             //     branch "*/main"
             // }
+            // use this with multi branches
             steps {
                 script {
                     //sh "docker compose down"
