@@ -13,7 +13,7 @@ run_params:
         - "subnet-03156e03dab66f7a7"
         - "subnet-07fd28e465a5c14e1"
       security_groups:
-        - "sg-0ae7f356fd3f24fa8"
+        - "sg-02b6b52ae07bb747e"
       assign_public_ip: ENABLED
 
 

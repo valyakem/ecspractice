@@ -3,19 +3,16 @@ pipeline {
     agent any
     
     environment {
-            REPOSITORY_URI = "440153443065.dkr.ecr.us-east-1.amazonaws.com"
-            AWS_DEFAULT_REGION = "us-east-1"
-            APP_NAME = "ecspractice"
-            VPC_ID = "vpc-502b5b2d"
-            SUBNET_ID_1 = "subnet-ac0120f3"
-            SUBNET_ID_2 = "subnet-52b39734"
-            SUBNET_ID_3 = "subnet-ec7a58cd"
-            SECURITY_GROUP_ID = "sg-072700b42430571ba"
-            MY_PROFILE = "default"
-            //CLUSTER_NAME = "pythontestapp"
-            //SERVICE_NAME = "pythontestappsv"
-            //TASK_DEFINITION_NAME = 'pythontestapp'
-            IMAGE_TAG = "latest"
+            REPOSITORY_URI      = "440153443065.dkr.ecr.us-east-1.amazonaws.com"
+            AWS_DEFAULT_REGION  = "us-east-1"
+            APP_NAME            = "ecspractice"
+            VPC_ID              = "vpc-502b5b2d"
+            SUBNET_ID_1         = "subnet-ac0120f3"
+            SUBNET_ID_2         = "subnet-52b39734"
+            SUBNET_ID_3         = "subnet-ec7a58cd"
+            SECURITY_GROUP_ID   = "sg-0c25a7bb7c43dba3c"
+            MY_PROFILE          = "default"
+            IMAGE_TAG           = "latest"
             //CONTAINER = "pythontestappct"
             //VPC_ID = "vpc-090bb77db170cd437"
     }
