@@ -120,7 +120,7 @@ pipeline {
                         --config-name $APP_NAME \
                         --region $AWS_DEFAULT_REGION"
                     
-                    sh "ecs-cli up \
+                    sh "ecs-cli down \
                         --cluster-config $APP_NAME \
                         --vpc $VPC_ID \
                         --subnets $SUBNET_ID_1, $SUBNET_ID_2, $SUBNET_ID_3 \
@@ -137,7 +137,7 @@ pipeline {
                         --cidr 0.0.0.0/0 \
                         --region $AWS_DEFAULT_REGION"
 
-                    sh "ecs-cli compose --project-name $APP_NAME service up \
+                    sh "ecs-cli compose --project-name $APP_NAME service down \
                         --create-log-groups \
                         --cluster-config $APP_NAME \
                         --ecs-profile $MY_PROFILE"
